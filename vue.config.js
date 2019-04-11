@@ -1,6 +1,8 @@
 const path = require("path");
 
 module.exports = {
-  publicPath: '/',
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/gravatar-vue/'
+    : '/',
   outputDir: path.resolve(__dirname, "docs")
 }
