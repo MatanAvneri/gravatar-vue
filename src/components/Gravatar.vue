@@ -1,8 +1,13 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <input placeholder="Email" v-model="email">
-    <br>
+    <div class="input-wrapper">
+      <label for="inp" class="inp">
+        <input type="text" id="inp" v-model="email" placeholder=" ">
+        <span class="label">Email</span>
+        <span class="border"></span>
+      </label>
+    </div>
     <img :src="gravatarUrl">
   </div>
 </template>
@@ -21,9 +26,7 @@ export default {
     };
   },
   computed: {
-    // a computed getter
     gravatarUrl: function() {
-      // `this` points to the vm instance
       return `https://secure.gravatar.com/avatar/${md5(this.email)}?size=200`;
     }
   }
@@ -32,18 +35,70 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.input-wrapper {
+  display: grid;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 20px
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.inp {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  max-width: 280px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.inp .label {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-size: 16px;
+  color: #9098a9;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transition: all 0.2s ease;
 }
-a {
-  color: #42b983;
+.inp .border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #07f;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: all 0.15s ease;
+}
+.inp input {
+  -webkit-appearance: none;
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  padding: 12px 0;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid #c8ccd4;
+  background: none;
+  border-radius: 0;
+  color: #223254;
+  transition: all 0.15s ease;
+}
+.inp input:hover {
+  background: rgba(34, 50, 84, 0.03);
+}
+.inp input:not(:placeholder-shown) + span {
+  color: #5a667f;
+  transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus {
+  background: none;
+  outline: none;
+}
+.inp input:focus + span {
+  color: #07f;
+  transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus + span + .border {
+  transform: scaleX(1);
 }
 </style>
