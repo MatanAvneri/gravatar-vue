@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img class="logo" alt="Vue logo" src="./assets/logo.png">
     <Gravatar/>
   </div>
 </template>
@@ -16,7 +16,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.logo {
+  width: 200px;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

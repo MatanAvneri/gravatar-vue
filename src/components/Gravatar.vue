@@ -33,13 +33,12 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .input-wrapper {
   display: grid;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 .inp {
   position: relative;
