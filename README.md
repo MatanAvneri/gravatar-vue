@@ -1,5 +1,8 @@
 # gravatar-playground
 
+## Hosted project
+https://matanavneri.github.io/gravatar-vue/index.html
+
 ## Project setup
 ```
 yarn install
