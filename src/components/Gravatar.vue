@@ -1,33 +1,33 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <input @change="retrieveGravatar" v-model='email' />
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
+    <input placeholder="Email" v-model="email">
+    <br>
+    <img :src="gravatarUrl">
   </div>
 </template>
 
 <script>
+import md5 from "blueimp-md5";
+
 export default {
-  name: 'HelloWorld',
+  name: "Gravatar",
   props: {
     msg: String
   },
   data() {
-  return {
-    email: ''
-  };
-},
-   methods: {
-      async retrieveGravatar(event) {
-        console.log('Searching for', this.$data.email)
-      }
-   }
-}
+    return {
+      email: ""
+    };
+  },
+  computed: {
+    // a computed getter
+    gravatarUrl: function() {
+      // `this` points to the vm instance
+      return `https://secure.gravatar.com/avatar/${md5(this.email)}?size=200`;
+    }
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
