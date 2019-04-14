@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     gravatarUrl: function() {
-      return `https://secure.gravatar.com/avatar/${md5(this.email)}?size=200`;
+      return `https://secure.gravatar.com/avatar/${md5(this.email.toLowerCase())}?size=200`;
     }
   }
 };
